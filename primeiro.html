@@ -1,18 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Tecnologia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #6200ea;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4500b5;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
+    <header>
+        <h1>Quiz de Tecnologia</h1>
+        <p>Teste seus conhecimentos sobre tecnologia!</p>
+    </header>
+    <div class="quiz-container">
+        <div class="question">
+            <p><strong>1. Qual é a linguagem de marcação usada para criar páginas web?</strong></p>
+            <ul class="options">
+                <li><input type="radio" name="q1" value="0"> Python</li>
+                <li><input type="radio" name="q1" value="1"> HTML</li>
+                <li><input type="radio" name="q1" value="0"> JavaScript</li>
+                <li><input type="radio" name="q1" value="0"> CSS</li>
+            </ul>
+        </div>
+        <div class="question">
+            <p><strong>2. O que significa a sigla 'CPU'?</strong></p>
+            <ul class="options">
+                <li><input type="radio" name="q2" value="1"> Unidade Central de Processamento</li>
+                <li><input type="radio" name="q2" value="0"> Unidade de Controle Periférico</li>
+                <li><input type="radio" name="q2" value="0"> Unidade Computacional Principal</li>
+                <li><input type="radio" name="q2" value="0"> Controle Principal de Usuário</li>
+            </ul>
+        </div>
+        <div class="question">
+            <p><strong>3. Qual empresa desenvolveu o sistema operacional Android?</strong></p>
+            <ul class="options">
+                <li><input type="radio" name="q3" value="0"> Apple</li>
+                <li><input type="radio" name="q3" value="1"> Google</li>
+                <li><input type="radio" name="q3" value="0"> Microsoft</li>
+                <li><input type="radio" name="q3" value="0"> Samsung</li>
+            </ul>
+        </div>
+        <button onclick="checkAnswers()">Verificar Respostas</button>
+        <div class="result" id="result"></div>
+    </div>
 
-<h2>HTML Forms</h2>
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            const totalQuestions = 3;
 
-<form action="teste.html">
-  <label for="fname">Primeiro nome:</label><br>
-  <input type="text" id="fname" name="fname" value="Alice Maria"><br>
-  <label for="lname">Sobrenome:</label><br>
-  <input type="text" id="lname" name="lname" value="Padilha Rodrigues"><br><br>
-  <input type="submit" value="Confirmar">
-</form> 
+            // Obter respostas selecionadas
+            const answers = document.querySelectorAll('input[type="radio"]:checked');
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+            // Verificar respostas
+            answers.forEach(answer => {
+                score += parseInt(answer.value);
+            });
 
+            // Mostrar resultado
+            const result = document.getElementById('result');
+            if (answers.length < totalQuestions) {
+                result.textContent = "Por favor, responda todas as perguntas!";
+                result.style.color = "red";
+            } else {
+                result.textContent = `Você acertou ${score} de ${totalQuestions} perguntas!`;
+                result.style.color = "green";
+            }
+        }
+    </script>
 </body>
 </html>
