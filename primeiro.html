@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de Tecnologia</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,11 +58,13 @@
         }
     </style>
 </head>
-<body>
+<body class="w3-flat-green">
+
     <header>
         <h1>Quiz de Tecnologia</h1>
         <p>Teste seus conhecimentos sobre tecnologia!</p>
     </header>
+
     <div class="quiz-container">
         <div class="question">
             <p><strong>1. Qual é a linguagem de marcação usada para criar páginas web?</strong></p>
@@ -81,12 +85,12 @@
             </ul>
         </div>
         <div class="question">
-            <p><strong>3. Qual empresa desenvolveu o sistema operacional Android?</strong></p>
+            <p><strong>3. Qual dessas é uma linguagem de programação?</strong></p>
             <ul class="options">
-                <li><input type="radio" name="q3" value="0"> Apple</li>
-                <li><input type="radio" name="q3" value="1"> Google</li>
+                <li><input type="radio" name="q3" value="1"> Python</li>
                 <li><input type="radio" name="q3" value="0"> Microsoft</li>
-                <li><input type="radio" name="q3" value="0"> Samsung</li>
+                <li><input type="radio" name="q3" value="0"> Windows</li>
+                <li><input type="radio" name="q3" value="0"> Google</li>
             </ul>
         </div>
         <button onclick="checkAnswers()">Verificar Respostas</button>
@@ -117,5 +121,6 @@
             }
         }
     </script>
+
 </body>
 </html>
